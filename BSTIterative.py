@@ -8,12 +8,14 @@ class node:
 class BST:
     def __init__(self):
         self.root = None
+        self.traversecount = 0
 
     def insertIter(self, val):
         if self.root:
             cur = self.root
             prev = self.root
             while cur:
+                self.traversecount += 1
                 if val < cur.val:
                     prev = cur
                     cur = cur.left
@@ -32,6 +34,7 @@ class BST:
             cur = self.root
             prev = self.root
             while cur:
+                self.traversecount += 1
                 if cur.val == val:
                     if cur.left and cur.right:
                         cur.val = self.__findMaxIterHelper(cur.left).val
@@ -69,6 +72,7 @@ class BST:
             prev = self.root
             max = None
             while cur:
+                self.traversecount += 1
                 if cur.val > val:
                     max = cur
                     prev = cur
@@ -90,6 +94,7 @@ class BST:
             prev = self.root
             min = None
             while cur:
+                self.traversecount += 1
                 if cur.val >= val:
                     prev = cur
                     cur = cur.left
@@ -114,6 +119,7 @@ class BST:
         cur = start
         prev = start
         while cur:
+            self.traversecount += 1
             prev = cur
             cur = cur.left
         return prev
@@ -127,28 +133,29 @@ class BST:
         cur = start
         prev = start
         while cur:
+            self.traversecount += 1
             prev = cur
             cur = cur.right
         return prev
 
 
-b = BST()
-b.insertIter(5)
-b.insertIter(12)
-b.insertIter(33)
-b.insertIter(14)
-b.insertIter(6)
-b.insertIter(3)
-b.insertIter(41)
-b.insertIter(30)
-b.insertIter(9)
-b.insertIter(18)
-
-b.deleteIter(33)
-b.deleteIter(5)
-b.deleteIter(18)
-
-print(b.findMaxIter())
-print(b.findMinIter())
-print(b.findNextIter(14))
-print(b.findPrevIter(14))
+# b = BST()
+# b.insertIter(5)
+# b.insertIter(12)
+# b.insertIter(33)
+# b.insertIter(14)
+# b.insertIter(6)
+# b.insertIter(3)
+# b.insertIter(41)
+# b.insertIter(30)
+# b.insertIter(9)
+# b.insertIter(18)
+#
+# b.deleteIter(33)
+# b.deleteIter(5)
+# b.deleteIter(18)
+#
+# print(b.findMaxIter())
+# print(b.findMinIter())
+# print(b.findNextIter(14))
+# print(b.findPrevIter(14))
